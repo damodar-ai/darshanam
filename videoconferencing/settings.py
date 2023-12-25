@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'videoconferencing.wsgi.application'
 import dj_database_url
 
 DATABASES={
-    "default":dj_database_url.parse('postgres://damodar:NjDTFHI8Nb8jdIR2dDWakVjV9MGhKUiN@dpg-cjo4sqj6fquc738pjmg0-a.oregon-postgres.render.com/tododb_rigo')
+    "default":dj_database_url.parse('postgres://codedarshandb_user:OWutuI9GcyKAMNcyNuT1utqnAXddWPLl@dpg-cm454cmn7f5s73btadng-a/codedarshandb')
 }
 
 
