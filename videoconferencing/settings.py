@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-
+import whitenoise
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-6fdgh7tki&^y_-cl4%tpyl-$kh9($vos&a5q&uq%!az2gs__bz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'videoconference_app',
-    'django_google_fonts',
+    'django_google_fonts'
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'videoconferencing.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR,'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,14 +73,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'videoconferencing.wsgi.application'
+import dj_database_url
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-import dj_database_url
 
 DATABASES={
-    "default":dj_database_url.parse('postgres://codedarshandb_user:OWutuI9GcyKAMNcyNuT1utqnAXddWPLl@dpg-cm454cmn7f5s73btadng-a/codedarshandb')
+    
+    "default":dj_database_url.parse('postgres://codedarshandb_user:OWutuI9GcyKAMNcyNuT1utqnAXddWPLl@dpg-cm454cmn7f5s73btadng-a.oregon-postgres.render.com/codedarshandb')
 }
 
 
@@ -119,20 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static'] #ADDED 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-STATICFILES_STORAGE = 'whitenoise_storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-MEDIA_URL = '/media'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-
-
